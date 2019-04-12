@@ -10,14 +10,13 @@ import UIKit
 
 class TimelineViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var postsCollectionView: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         postsCollectionView.delegate = self
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

@@ -15,7 +15,7 @@ struct Client {
     let baseURLComponents: URLComponents
     public var accept = "application/json"
     public var contentType = "application/json"
-    
+
     init() {
         self.baseURLComponents = URLComponents(string: Secrets.host.value!)!
     }
@@ -35,7 +35,7 @@ struct Client {
         if let token = Secrets.uuid.value {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-        
+
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 errorHandler?(error)

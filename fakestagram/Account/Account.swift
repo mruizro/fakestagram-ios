@@ -14,7 +14,7 @@ struct Account: Codable {
     let name: String
     let deviceNumber: String
     let deviceModel: String
-    
+
     static func initialize() -> Account {
         return Account(
             id: nil,

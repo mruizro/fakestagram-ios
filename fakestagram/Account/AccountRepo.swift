@@ -11,7 +11,7 @@ import Foundation
 class AccountRepo {
     static let shared = AccountRepo()
     let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
-    
+
     typealias accountResponse = (Account) -> Void
     func loadOrCreate(success: accountResponse?) {
         if let account = load() {
@@ -29,7 +29,7 @@ class AccountRepo {
     func load() -> Account? {
         return AccountStorage.shared.item
     }
-    
+
     func create(_ account: Account, success: @escaping (Account) -> Void) {
         restClient.create(codable: account, success: success)
     }

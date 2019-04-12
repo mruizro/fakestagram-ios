@@ -11,7 +11,7 @@ import Foundation
 enum Secrets {
     case host
     case uuid
-    
+
     var value: String? {
         switch self {
         case .host:

@@ -10,7 +10,7 @@ import Foundation
 
 struct Author: Codable {
     let name: String
-    
+
     func avatarURL() -> URL {
         return Identicon(key: self.name).url()!
     }
