@@ -13,8 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         AccountRepo.shared.loadOrCreate { (account) in
-            print(account)
+            if let uuid = account.id {
+                _ = Secrets.token.set(value: uuid)
+            }
         }
         return true
     }
