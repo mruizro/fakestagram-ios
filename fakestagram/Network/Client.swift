@@ -42,7 +42,9 @@ struct Client {
                 return
             }
             let response = HTTPResponse(reponse: response as! HTTPURLResponse)
-            completionHandler?(response, data)
+            DispatchQueue.main.async {
+                completionHandler?(response, data)
+            }
         }
         task.resume()
     }

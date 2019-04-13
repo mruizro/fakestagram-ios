@@ -8,15 +8,19 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController, UICollectionViewDelegate {
+class TimelineViewController: UIViewController {
     @IBOutlet weak var postsCollectionView: UICollectionView!
+    let client = TimelineClient()
+    var posts: [Post] = [] {
+        didSet { postsCollectionView.reloadData() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Secrets.token.value!)
-        postsCollectionView.delegate = self
-
-        // Do any additional setup after loading the view.
+        configCollectionView()
+        client.show { [weak self] data in
+            self?.posts = data
+        }
     }
 
     /*
@@ -29,4 +33,31 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     }
     */
 
+    private func configCollectionView() {
+        postsCollectionView.delegate = self
+        postsCollectionView.dataSource = self
+        let postCollectionViewCellXib = UINib(nibName: String(describing: PostCollectionViewCell.self), bundle: nil)
+        postsCollectionView.register(postCollectionViewCellXib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
+    }
+}
+
+extension TimelineViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.postsCollectionView.frame.width, height: 600)
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
+        cell.post = posts[indexPath.row]
+        return cell
+    }
 }
