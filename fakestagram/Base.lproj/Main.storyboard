@@ -29,7 +29,7 @@
         <!--Profile Name-->
         <scene sceneID="F5e-x0-Usw">
             <objects>
-                <viewController id="ZXG-Uf-fgx" sceneMemberID="viewController">
+                <viewController id="ZXG-Uf-fgx" customClass="ProfileViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Olc-Pp-Vyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,8 +54,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5q0-Ap-zuW" customClass="PostAuthorView" customModule="fakestagram" customModuleProvider="target">
-                                <rect key="frame" x="5" y="69" width="365" height="64"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5q0-Ap-zuW" customClass="PostAuthorView" customModule="fakestagram" customModuleProvider="target">
+                                <rect key="frame" x="5" y="68" width="365" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Yus-G8-6JH"/>
@@ -75,6 +75,9 @@
                         <viewLayoutGuide key="safeArea" id="hc8-6h-JFA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile Name" id="g7K-02-Y1a"/>
+                    <connections>
+                        <outlet property="authorView" destination="5q0-Ap-zuW" id="rlW-2a-7Tn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oI-Up-tFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
