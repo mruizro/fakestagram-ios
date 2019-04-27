@@ -13,11 +13,26 @@
         <!--Photo-->
         <scene sceneID="fT2-kv-dq9">
             <objects>
-                <viewController id="0rS-E4-WRa" sceneMemberID="viewController">
+                <viewController id="0rS-E4-WRa" customClass="CameraViewController" customModule="fakestagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lar-lz-tt1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBT-jU-YWy">
+                                <rect key="frame" x="20" y="308" width="335" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Oh Snap!"/>
+                                <connections>
+                                    <action selector="onTapSnap:" destination="0rS-E4-WRa" eventType="touchUpInside" id="thv-2p-Boh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JBT-jU-YWy" firstAttribute="leading" secondItem="SAo-UK-5Ng" secondAttribute="leading" constant="20" id="DKo-Eg-HxG"/>
+                            <constraint firstItem="JBT-jU-YWy" firstAttribute="centerY" secondItem="Lar-lz-tt1" secondAttribute="centerY" id="Jmb-VM-Gpx"/>
+                            <constraint firstItem="SAo-UK-5Ng" firstAttribute="trailing" secondItem="JBT-jU-YWy" secondAttribute="trailing" constant="20" id="fg5-Ob-FJh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SAo-UK-5Ng"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo" image="camera" id="ygy-XD-3IH" userLabel="Create"/>

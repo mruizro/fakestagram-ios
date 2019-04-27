@@ -19,6 +19,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UITextView!
     @IBOutlet weak var likesCountLbl: UILabel!
     @IBOutlet weak var commentsCountLbl: UILabel!
+    @IBOutlet weak var likeBtn: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +33,14 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         authorView.author = post.author
         titleLbl.text = post.title
-        likesCountLbl.text = "\(post.likesCount) likes"
-        commentsCountLbl.text = "\(post.commentsCount) comments"
+        likesCountLbl.text = post.likesCountText()
+        commentsCountLbl.text = post.commentsCountText()
+    }
+
+    @IBAction func tapLike(_ sender: Any) {
+        guard let post = post else { return }
+        let client = LikeUpdaterClient(post: post)
+        let newPost = client.call()
+        likesCountLbl.text = newPost.likesCountText()
     }
 }

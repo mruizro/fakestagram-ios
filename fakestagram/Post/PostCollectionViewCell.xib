@@ -26,8 +26,9 @@
                             <constraint firstAttribute="height" constant="64" id="doV-8f-0Xf"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
                         <rect key="frame" x="0.0" y="74" width="355" height="355"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="B7R-9H-BNz" secondAttribute="height" multiplier="1:1" id="y3W-Xh-VPN"/>
                         </constraints>
@@ -35,6 +36,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-mz-Uik">
                         <rect key="frame" x="20" y="430.5" width="30" height="30"/>
                         <state key="normal" title="Like"/>
+                        <connections>
+                            <action selector="tapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="m8I-Bb-dGE"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-BQ-2kR">
                         <rect key="frame" x="55" y="430.5" width="67" height="30"/>
@@ -87,6 +91,7 @@
                 <outlet property="authorView" destination="Sni-u6-baQ" id="Xky-5n-fuV"/>
                 <outlet property="commentsCountLbl" destination="00E-Fs-pbe" id="lCZ-Uz-uN6"/>
                 <outlet property="imageView" destination="B7R-9H-BNz" id="Yaw-Tl-mJD"/>
+                <outlet property="likeBtn" destination="2G7-mz-Uik" id="TJB-Ce-WgX"/>
                 <outlet property="likesCountLbl" destination="lfa-mc-RD9" id="3Oa-Mg-D2M"/>
                 <outlet property="titleLbl" destination="UCK-8L-B25" id="aw1-GQ-qMU"/>
             </connections>
