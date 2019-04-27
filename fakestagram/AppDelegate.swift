@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        StorageType.permanent.ensureExists()
+        StorageType.cache.ensureExists()
 
         AccountRepo.shared.loadOrCreate { (account) in
             if let uuid = account.id {
