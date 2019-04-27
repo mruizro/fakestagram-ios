@@ -12,8 +12,6 @@
 		E01AC9D72273CD6700D5F13C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D62273CD6700D5F13C /* ImageCache.swift */; };
 		E04FB2DC2249F2AB00B81C8A /* CodableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
-		E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */; };
-		E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2E12249F52900B81C8A /* AccountStorage.swift */; };
 		E07D9031226238C5004BCDE3 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D9030226238C5004BCDE3 /* AccountClient.swift */; };
 		E07D903322623A00004BCDE3 /* TimelineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D903222623A00004BCDE3 /* TimelineClient.swift */; };
 		E0BB9748223F444B00D028A1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB9747223F444B00D028A1 /* Client.swift */; };
@@ -61,8 +59,6 @@
 		E01AC9D62273CD6700D5F13C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorage.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
-		E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStorage.swift; sourceTree = "<group>"; };
-		E04FB2E12249F52900B81C8A /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		E07D9030226238C5004BCDE3 /* AccountClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
 		E07D903222623A00004BCDE3 /* TimelineClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineClient.swift; sourceTree = "<group>"; };
 		E0BB9747223F444B00D028A1 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -119,7 +115,6 @@
 		E04FB2D72249F1E600B81C8A /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				E04FB2DF2249F42A00B81C8A /* ItemStorage.swift */,
 				E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */,
 				E01AC9D22273C39900D5F13C /* ImageStorage.swift */,
 				E01AC9D62273CD6700D5F13C /* ImageCache.swift */,
@@ -145,7 +140,6 @@
 			children = (
 				E0BB974C223F45EA00D028A1 /* Account.swift */,
 				E07D9030226238C5004BCDE3 /* AccountClient.swift */,
-				E04FB2E12249F52900B81C8A /* AccountStorage.swift */,
 				E0BB9756223F6A3500D028A1 /* AccountRepo.swift */,
 			);
 			path = Account;
@@ -357,14 +351,12 @@
 				E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */,
 				E01AC9D52273C79E00D5F13C /* DataContainer.swift in Sources */,
 				E0DDFA25223E0017009EB136 /* SVGView.swift in Sources */,
-				E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */,
 				E04FB2DC2249F2AB00B81C8A /* CodableStorage.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0F4B04222700427000975C0 /* ProfileViewController.swift in Sources */,
 				E0DDFA31223E181C009EB136 /* PostDetailViewController.swift in Sources */,
 				E0BB974D223F45EA00D028A1 /* Account.swift in Sources */,
 				E0BCD23D2248A14300B4E0F6 /* RestClient.swift in Sources */,
-				E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */,
 				E0DDFA18223DFCC8009EB136 /* Post.swift in Sources */,
 				E07D903322623A00004BCDE3 /* TimelineClient.swift in Sources */,
 				E0DDFA2E223E0EF2009EB136 /* TimelineViewController.swift in Sources */,
