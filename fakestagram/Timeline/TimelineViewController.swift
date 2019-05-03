@@ -18,6 +18,8 @@ class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didLikePost(_:)), name: .didLikePost, object: nil)
+
         client.show { [weak self] data in
             self?.posts = data
         }
@@ -38,6 +40,14 @@ class TimelineViewController: UIViewController {
         postsCollectionView.dataSource = self
         let postCollectionViewCellXib = UINib(nibName: String(describing: PostCollectionViewCell.self), bundle: nil)
         postsCollectionView.register(postCollectionViewCellXib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
+    }
+
+    @objc func didLikePost(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+            let row = userInfo["row"] as? Int,
+            let data = userInfo["post"] as? Data,
+            let json = try? JSONDecoder().decode(Post.self, from: data) else { return }
+        posts[row] = json
     }
 }
 

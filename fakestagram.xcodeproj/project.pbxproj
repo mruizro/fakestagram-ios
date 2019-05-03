@@ -12,6 +12,7 @@
 		E01AC9D72273CD6700D5F13C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D62273CD6700D5F13C /* ImageCache.swift */; };
 		E01AC9D92273DCF200D5F13C /* LikeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D82273DCF200D5F13C /* LikeClient.swift */; };
 		E01AC9DB2273DE9000D5F13C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9DA2273DE9000D5F13C /* Like.swift */; };
+		E01DEDA3227CEDCC003AAE50 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DEDA2227CEDCC003AAE50 /* NotificationNames.swift */; };
 		E04FB2DC2249F2AB00B81C8A /* CodableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */; };
 		E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DD2249F2D300B81C8A /* StorageType.swift */; };
 		E07D9031226238C5004BCDE3 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D9030226238C5004BCDE3 /* AccountClient.swift */; };
@@ -64,6 +65,7 @@
 		E01AC9D62273CD6700D5F13C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E01AC9D82273DCF200D5F13C /* LikeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeClient.swift; sourceTree = "<group>"; };
 		E01AC9DA2273DE9000D5F13C /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		E01DEDA2227CEDCC003AAE50 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		E04FB2DB2249F2AB00B81C8A /* CodableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorage.swift; sourceTree = "<group>"; };
 		E04FB2DD2249F2D300B81C8A /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		E07D9030226238C5004BCDE3 /* AccountClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		E09CD7C22274A270007EB84A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				E09480572274BDFB00EFC341 /* CreatePostClient.swift */,
 				E09CD7C32274A298007EB84A /* CameraViewController.swift */,
 			);
 			path = Camera;
@@ -204,6 +207,7 @@
 				E0BB9754223F5EDA00D028A1 /* Name.swift */,
 				E0BB9752223F5DFB00D028A1 /* Names.plist */,
 				E09CD7C52274A5CF007EB84A /* UIImage+base64.swift */,
+				E01DEDA2227CEDCC003AAE50 /* NotificationNames.swift */,
 			);
 			path = fakestagram;
 			sourceTree = "<group>";
@@ -229,7 +233,6 @@
 				E0DDFA30223E181C009EB136 /* PostDetailViewController.xib */,
 				E01AC9DA2273DE9000D5F13C /* Like.swift */,
 				E01AC9D82273DCF200D5F13C /* LikeClient.swift */,
-				E09480572274BDFB00EFC341 /* CreatePostClient.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				E01AC9DB2273DE9000D5F13C /* Like.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
 				E0DDFA21223DFE73009EB136 /* PostCollectionViewCell.swift in Sources */,
+				E01DEDA3227CEDCC003AAE50 /* NotificationNames.swift in Sources */,
 				E04FB2DE2249F2D300B81C8A /* StorageType.swift in Sources */,
 				E01AC9D52273C79E00D5F13C /* DataContainer.swift in Sources */,
 				E0DDFA25223E0017009EB136 /* SVGView.swift in Sources */,
