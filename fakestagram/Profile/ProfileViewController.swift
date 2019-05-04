@@ -9,22 +9,60 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var profileCollectionView: UICollectionView!
+    
+    @IBOutlet weak var profileNameTitle: UINavigationItem!
+    let client = ProfileClient()
+    var posts: [ProfilePost] = [] {
+        didSet { profileCollectionView.reloadData() }
+    }
+    
     @IBOutlet weak var authorView: PostAuthorView!
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        authorView.author = Author(id: "213", name: "jojo")
+        profileCollectionView.delegate = self
+        profileCollectionView.dataSource = self
+        client.show { [weak self] data in
+            self?.posts = data
+            print(data)
+        }
+        authorView.author = Author(id: Secrets.token.value!, name: UserDefaults.standard.string(forKey: "name")!)
+        profileNameTitle.title = authorView.author?.name
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/3.0
+        let yourHeight = yourWidth
+        
+        return CGSize(width: yourWidth, height: yourHeight)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.reuseIdentifier, for: indexPath) as! ProfileCollectionViewCell
+        cell.post = posts[indexPath.row]
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+}
+
+

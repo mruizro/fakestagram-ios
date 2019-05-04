@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let uuid = account.id {
                 _ = Secrets.token.set(value: uuid)
             }
+            UserDefaults.standard.set(account.name, forKey: "name")
         }
         return true
     }

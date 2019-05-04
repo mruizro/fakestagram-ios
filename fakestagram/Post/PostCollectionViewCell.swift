@@ -37,10 +37,4 @@ class PostCollectionViewCell: UICollectionViewCell {
         likesCountLbl.text = post.likesCountText()
         commentsCountLbl.text = post.commentsCountText()
     }
-
-    @IBAction func tapLike(_ sender: Any) {
-        guard let post = post else { return }
-        let client = LikeUpdaterClient(post: post, row: row)
-        self.post = client.call()
-    }
 }
