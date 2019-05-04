@@ -47,7 +47,7 @@ class TimelineViewController: UIViewController {
             let row = userInfo["row"] as? Int,
             let data = userInfo["post"] as? Data,
             let json = try? JSONDecoder().decode(Post.self, from: data) else { return }
-        posts[row] = json
+//        posts[row] = json
     }
 }
 
