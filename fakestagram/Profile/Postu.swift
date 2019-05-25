@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-struct ProfilePost: Codable {
+struct Postu: Codable {
     let id: Int?
     let title: String
     let imageUrl: String?
-    //    let author: Author?
-    //    var likesCount: Int
+    let author: Author?
+    var likesCount: Int
     //    var commentsCount: Int
     //    let createdAt: String
     //    var liked: Bool

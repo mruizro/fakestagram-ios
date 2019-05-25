@@ -12,7 +12,7 @@ import UIKit
 class ProfileCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "profileViewCell"
     @IBOutlet weak var imageView: UIImageView!
-    public var post: ProfilePost? {
+    public var post: Post? {
         didSet {
             updateView()
         }

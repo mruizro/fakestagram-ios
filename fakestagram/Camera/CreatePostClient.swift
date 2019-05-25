@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct CreatePostBase64: Codable {
     let title: String
@@ -27,6 +28,14 @@ class CreatePostClient {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
+//
+//    func createP(title:String,imageData:String,location:CLLocation?, success onSuccess: @escaping(Post)) -> Void {
+//        let payload = CreatePostBase64(title: title, imageData: imageData, longitude: location?.coordinate.longitude?, latitude: location?.coordinate.latitude)
+//    }
+//
+//
+//
+//
 
     func create(payload: CreatePostBase64, succcess: @escaping (Post) -> Void) {
         guard let data = try? encoder.encode(payload) else { return }
@@ -52,4 +61,7 @@ class CreatePostClient {
         guard let err = error else { return }
         print("Error on request: \(err.localizedDescription)")
     }
+    
+    
+    
 }

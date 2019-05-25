@@ -7,21 +7,41 @@
 //
 
 import UIKit
+import CoreLocation
+import AVFoundation
 
 class CameraViewController: UIViewController {
+    let locationManager = CLLocationManager()
     let client = CreatePostClient()
-
+    var currentLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        enableBasicLocationServices()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        locationManager.startUpdatingLocation()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func enableBasicLocationServices() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+    }
 
+    
+    
     @IBAction func onTapSnap(_ sender: Any) {
         guard let img = UIImage(named: "ahorita"),
               let imgBase64 = img.encodedBase64() else { return }
-        let payload = CreatePostBase64(title: "Me llamaba joven- \(Date().currentTimestamp())",
-            imageData: imgBase64)
+        let payload = CreatePostBase64(title: "xx\(Date().currentTimestamp())", imageData: imgBase64)
         client.create(payload: payload) { post in
             print(post)
         }
@@ -37,4 +57,11 @@ class CameraViewController: UIViewController {
     }
     */
 
+}
+
+
+extension CameraViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.currentLocation = locations.last
+    }
 }

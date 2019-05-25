@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-struct Post: Codable {
+struct Post: Codable  {
     let id: Int?
     let title: String
     let imageUrl: String?
@@ -18,6 +19,8 @@ struct Post: Codable {
     var commentsCount: Int
     let createdAt: String
     var liked: Bool
+    var location:String
+    
 
     func likesCountText() -> String {
         return "\(likesCount) likes"
@@ -42,3 +45,7 @@ struct Post: Codable {
         }
     }
 }
+
+
+
+

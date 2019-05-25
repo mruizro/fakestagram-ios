@@ -12,10 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostDetailViewController" customModule="fakestagram" customModuleProvider="target">
             <connections>
-                <outlet property="authorView" destination="EJn-kL-eYs" id="vUv-IQ-oNC"/>
-                <outlet property="imgView" destination="nto-lF-Kms" id="I7U-bG-AGe"/>
-                <outlet property="likeCounterLbl" destination="KFn-If-OfO" id="N4N-bS-a6S"/>
-                <outlet property="titleLbl" destination="Gqq-yQ-HlR" id="Ktz-6Z-WT9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,7 +72,7 @@
                         <constraint firstAttribute="trailing" secondItem="EJn-kL-eYs" secondAttribute="trailing" constant="5" id="VPe-GP-gM8"/>
                         <constraint firstAttribute="trailing" secondItem="s23-Bh-4GM" secondAttribute="trailing" id="VpC-fS-5lR"/>
                         <constraint firstItem="KFn-If-OfO" firstAttribute="firstBaseline" secondItem="s23-Bh-4GM" secondAttribute="baseline" constant="24.5" symbolType="layoutAnchor" id="Y8u-79-bp2"/>
-                        <constraint firstItem="1eN-BM-b1J" firstAttribute="firstBaseline" secondItem="s23-Bh-4GM" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="awM-h1-hLr"/>
+                        <constraint firstItem="1eN-BM-b1J" firstAttribute="firstBaseline" secondItem="s23-Bh-4GM" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="awM-h1-hLr"/>
                         <constraint firstItem="Gqq-yQ-HlR" firstAttribute="top" secondItem="KFn-If-OfO" secondAttribute="bottom" constant="6" id="dft-ho-7zP"/>
                         <constraint firstItem="EJn-kL-eYs" firstAttribute="top" secondItem="nto-lF-Kms" secondAttribute="top" constant="5" id="gFI-HD-wQR"/>
                         <constraint firstItem="hYs-fy-AY1" firstAttribute="leading" secondItem="1eN-BM-b1J" secondAttribute="trailing" constant="8" id="jw0-eJ-Yhq"/>
