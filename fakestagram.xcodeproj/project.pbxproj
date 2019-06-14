@@ -12,9 +12,11 @@
 		614E641A2299A3490096585E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E64192299A3490096585E /* Comment.swift */; };
 		614E64202299B0860096585E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E641F2299B0860096585E /* CommentTableViewCell.swift */; };
 		614E64222299BAC60096585E /* CommentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E64212299BAC60096585E /* CommentClient.swift */; };
+		6188415122AC334D003961B2 /* SAMKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6188415022AC334D003961B2 /* SAMKeychain.framework */; };
 		61CBD8D0227DF8FB0084BCE0 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CBD8CF227DF8FB0084BCE0 /* ProfileCollectionViewCell.swift */; };
 		61CBD8D2227DFB720084BCE0 /* ProfileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CBD8D1227DFB720084BCE0 /* ProfileClient.swift */; };
 		61CBD8D4227E03A20084BCE0 /* Postu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CBD8D3227E03A20084BCE0 /* Postu.swift */; };
+		C06A7B4A22A8C9E20079A8C5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A7B4922A8C9E20079A8C5 /* CommentViewController.swift */; };
 		E01AC9D32273C39900D5F13C /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D22273C39900D5F13C /* ImageStorage.swift */; };
 		E01AC9D52273C79E00D5F13C /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D42273C79E00D5F13C /* DataContainer.swift */; };
 		E01AC9D72273CD6700D5F13C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01AC9D62273CD6700D5F13C /* ImageCache.swift */; };
@@ -74,10 +76,12 @@
 		614E64192299A3490096585E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		614E641F2299B0860096585E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		614E64212299BAC60096585E /* CommentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentClient.swift; sourceTree = "<group>"; };
+		6188415022AC334D003961B2 /* SAMKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SAMKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CBD8CF227DF8FB0084BCE0 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		61CBD8D1227DFB720084BCE0 /* ProfileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClient.swift; sourceTree = "<group>"; };
 		61CBD8D3227E03A20084BCE0 /* Postu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postu.swift; sourceTree = "<group>"; };
 		AFF79A2E61AEC2C124D4D96F /* Pods_fakestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fakestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C06A7B4922A8C9E20079A8C5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DF3A5D1BA58ACAAC1872EEFF /* Pods-fakestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		E01AC9D22273C39900D5F13C /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		E01AC9D42273C79E00D5F13C /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6188415122AC334D003961B2 /* SAMKeychain.framework in Frameworks */,
 				01C49CE6F560AE303ECDF05A /* Pods_fakestagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +154,7 @@
 		2DAC47257E183E8DC9C6EDB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6188415022AC334D003961B2 /* SAMKeychain.framework */,
 				0D110D85B04A6FB1FD540036 /* Pods_fakestagram.framework */,
 				AFF79A2E61AEC2C124D4D96F /* Pods_fakestagramTests.framework */,
 			);
@@ -161,6 +167,7 @@
 				614E64192299A3490096585E /* Comment.swift */,
 				614E641F2299B0860096585E /* CommentTableViewCell.swift */,
 				614E64212299BAC60096585E /* CommentClient.swift */,
+				C06A7B4922A8C9E20079A8C5 /* CommentViewController.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -369,7 +376,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = 3zcurdia;
+				ORGANIZATIONNAME = ruizro;
 				TargetAttributes = {
 					E0DDF9EC223DF640009EB136 = {
 						CreatedOnToolsVersion = 10.1;
@@ -498,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06A7B4A22A8C9E20079A8C5 /* CommentViewController.swift in Sources */,
 				E01AC9D72273CD6700D5F13C /* ImageCache.swift in Sources */,
 				E0DDFA29223E03DC009EB136 /* Author.swift in Sources */,
 				61CBD8D0227DF8FB0084BCE0 /* ProfileCollectionViewCell.swift in Sources */,
@@ -700,7 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 485M362QGX;
 				INFOPLIST_FILE = fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -719,7 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 485M362QGX;
 				INFOPLIST_FILE = fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -37,4 +37,33 @@ class PostCollectionViewCell: UICollectionViewCell {
         likesCountLbl.text = post.likesCountText()
         commentsCountLbl.text = post.commentsCountText()
     }
+    
+    
+    @IBAction func tapLike(_ sender: Any) {
+        guard let post = post else { return }
+        let client = LikeUpdaterClient(post: post)
+        let newPost = client.call()
+        likesCountLbl.text = newPost.likesCountText()
+    }
+    
+    
+    @IBAction func addComment(_ sender: Any) {
+//        guard let post = self.post else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let clientComment = CommentClient(post: self.post!)
+//        var comments: [Comment] = []
+//        clientComment.all {data in
+//            comments =  data
+//        }
+        let commentVC = storyboard.instantiateViewController(withIdentifier: "commentVC") as! CommentViewController
+         commentVC.post = self.post
+//        commentVC.comments = comments
+        self.window?.rootViewController?.present(commentVC, animated: true, completion: nil)
+        
+        
+    }
+    
 }
+
+    
+

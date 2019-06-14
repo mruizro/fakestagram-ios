@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController {
         profileCollectionView.dataSource = self
         client.show { [weak self] data in
             self?.posts = data
-//            print(data)
         }
         authorView.author = Author(id: Secrets.token.value!, name: UserDefaults.standard.string(forKey: "name")!)
         profileNameTitle.title = authorView.author?.name
@@ -65,8 +64,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        coll.deselectRow(at: indexPath, animated: true)
-        print("IP.row=\(indexPath.row)")
         if let postDetailVC = self.storyboard?.instantiateViewController(withIdentifier: PostDetailViewController.reuseIdentifier) as? PostDetailViewController {
             let post = self.posts[indexPath.row]
             postDetailVC.post = post

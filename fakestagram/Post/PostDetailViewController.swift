@@ -16,19 +16,22 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var likeCounterLbl: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     lazy var client = CommentClient(post: post)
-    var comments:[Comment] = []
+    var comments: [Comment] = [] {
+         didSet { commentsTableView.reloadData() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         assignValues()
-       
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
+        client.all {[weak self] data in
+            self!.comments =  data
+        }
     }
    
     func assignValues(){
         guard let post = self.post else { return }
-        client.all { [weak self] data in
-            (self?.comments = data)!
-        }
         post.load { [weak self] img in
             self?.imgView.image = img
         }
@@ -46,10 +49,8 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(comments.count)
         let cell = commentsTableView.dequeueReusableCell(withIdentifier:
             CommentTableViewCell.reuseIdentifier, for: indexPath) as! CommentTableViewCell
-//        cell.comment = comments[indexPath.row]
         cell.authorName.text = comments[indexPath.row].author?.name
         cell.contentTV.text = comments[indexPath.row].content
         cell.created.text = comments[indexPath.row].created_at
@@ -57,7 +58,11 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     }
  
     @IBAction func addComment(_ sender: Any) {
-        
+        if let commentDetailVC = self.storyboard?.instantiateViewController(withIdentifier: CommentViewController.reuseIdentifier) as? CommentViewController {
+            commentDetailVC.post = post
+            self.navigationController?.pushViewController(commentDetailVC, animated: true)
+//            commentDetailVC.delegate = self
+        }
     }
     
     

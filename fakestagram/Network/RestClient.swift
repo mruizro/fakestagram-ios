@@ -80,7 +80,7 @@ class RestClient<T> where T: Codable {
                 let json = try decoder.decode([T].self, from: data)
                 success?(json)
             } catch let err {
-                print("Unable to parse successfull response: \(err.localizedDescription)")
+                print("Unable to parse list successfull response: \(err.localizedDescription)")
                 errorHandler?(err)
             }
         }, errorHandler: errorHandler)

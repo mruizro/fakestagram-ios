@@ -14,27 +14,16 @@ class TimelineViewController: UIViewController {
     var posts: [Post] = [] {
         didSet { postsCollectionView.reloadData() }
     }
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost(_:)), name: .didLikePost, object: nil)
-
         client.show { [weak self] data in
             self?.posts = data
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     private func configCollectionView() {
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
@@ -47,7 +36,7 @@ class TimelineViewController: UIViewController {
             let row = userInfo["row"] as? Int,
             let data = userInfo["post"] as? Data,
             let json = try? JSONDecoder().decode(Post.self, from: data) else { return }
-//        posts[row] = json
+            posts[row] = json
     }
 }
 

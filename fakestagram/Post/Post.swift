@@ -20,6 +20,7 @@ struct Post: Codable  {
     let createdAt: String
     var liked: Bool
     var location:String
+    var comments:[Comment]?
     
 
     func likesCountText() -> String {

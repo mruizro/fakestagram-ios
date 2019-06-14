@@ -28,6 +28,7 @@ struct Client {
             return
         }
         var request = URLRequest(url: url)
+//        print("URL: \(url.)")
         request.setValue(accept, forHTTPHeaderField: "Accept")
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
         request.httpMethod = method
@@ -44,6 +45,7 @@ struct Client {
             let response = HTTPResponse(reponse: response as! HTTPURLResponse)
             DispatchQueue.main.async {
                 completionHandler?(response, data)
+//                print(data!)
             }
         }
         task.resume()
