@@ -26,7 +26,6 @@ class PostCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         updateView()
     }
-
     private func updateView() {
         guard let post = self.post else { return }
         post.load { [weak self] img in

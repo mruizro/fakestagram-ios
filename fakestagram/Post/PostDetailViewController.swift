@@ -25,11 +25,15 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
         assignValues()
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
+    }
+   
+    override func viewWillAppear(_ animated: Bool) {
         client.all {[weak self] data in
             self!.comments =  data
         }
+        commentsTableView.reloadData()
     }
-   
+    
     func assignValues(){
         guard let post = self.post else { return }
         post.load { [weak self] img in
@@ -54,13 +58,14 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
         cell.authorName.text = comments[indexPath.row].author?.name
         cell.contentTV.text = comments[indexPath.row].content
         cell.created.text = comments[indexPath.row].created_at
+        
         return cell
     }
  
     @IBAction func addComment(_ sender: Any) {
         if let commentDetailVC = self.storyboard?.instantiateViewController(withIdentifier: CommentViewController.reuseIdentifier) as? CommentViewController {
             commentDetailVC.post = post
-            self.navigationController?.pushViewController(commentDetailVC, animated: true)
+            self.navigationController?.present(commentDetailVC, animated: true,completion: nil)
 //            commentDetailVC.delegate = self
         }
     }

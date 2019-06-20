@@ -24,11 +24,11 @@ struct Post: Codable  {
     
 
     func likesCountText() -> String {
-        return "\(likesCount) likes"
+        return "\(likesCount)"
     }
 
     func commentsCountText() -> String {
-        return "\(commentsCount) comments"
+        return "\(commentsCount)"
     }
 
     func load(_ image: @escaping (UIImage) -> Void) {

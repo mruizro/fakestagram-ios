@@ -16,11 +16,11 @@ class Comment:Codable {
     var author: Author?
 
 
-    init(id: Int,content:String,created_at:String,updated_at:String,author:Author) { // Constructor
+    init(content:String,author:Author) { // Constructor
         self.id = nil
         self.content = content
-        self.created_at = created_at
-        self.updated_at = updated_at
+        self.created_at = nil
+        self.updated_at = nil
         self.author = author
     }
     

@@ -12,7 +12,7 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     let client = TimelineClient()
     var posts: [Post] = [] {
-        didSet { postsCollectionView.reloadData() }
+        didSet { self.postsCollectionView.reloadData() }
     }
    
 
@@ -20,10 +20,15 @@ class TimelineViewController: UIViewController {
         super.viewDidLoad()
         configCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost(_:)), name: .didLikePost, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         client.show { [weak self] data in
             self?.posts = data
         }
+        self.postsCollectionView.reloadData()
     }
+    
     private func configCollectionView() {
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
@@ -43,7 +48,7 @@ class TimelineViewController: UIViewController {
 extension TimelineViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.postsCollectionView.frame.width, height: 600)
+        return CGSize(width: self.postsCollectionView.frame.width, height: 550)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -59,4 +64,5 @@ extension TimelineViewController: UICollectionViewDelegate, UICollectionViewData
         cell.post = posts[indexPath.row]
         return cell
     }
+    
 }

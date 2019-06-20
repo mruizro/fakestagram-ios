@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
+
 class CommentViewController: UIViewController{
-    @IBOutlet weak var authorLbl: UILabel!
+//    @IBOutlet weak var authorLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UITextView!
     @IBOutlet weak var commentsTV: UITableView!
-    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentTextField:
+    UITextField!
+    @IBOutlet weak var authorView: PostAuthorView!
+    @IBOutlet weak var closeBtn: UIButton!
     
     static let reuseIdentifier = "commentVC"
     public var post:Post!
@@ -22,11 +26,13 @@ class CommentViewController: UIViewController{
     }
     lazy var client = CommentClient(post: post)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsTV.delegate = self
         commentsTV.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         client.all {[weak self] data in
             self!.comments =  data
         }
@@ -34,19 +40,21 @@ class CommentViewController: UIViewController{
     }
     
      @IBAction func sendComment(_ sender: Any) {
-        print("Enviando comentario")
-        let payload = Comment(id: 100, content: commentTextField.text!, created_at: "", updated_at: "", author: post.author!)
+        let payload = Comment(content: commentTextField.text!, author: post.author!)
         client.create(codable: payload) { (comment) in
-            print(comment.content)
             self.client.all {[weak self] data in
                 self!.comments =  data
+                self!.commentTextField.text = ""
             }
             self.commentsTV.reloadData()
         }
     }
     
+    @IBAction func closeComments(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     func setValues() {
-        authorLbl.text = post?.author?.name
+        authorView.author = post.author
         descriptionLbl.text = post?.title
     }
     
@@ -57,11 +65,11 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource{
         return comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print(comments.count)
         let cell = commentsTV.dequeueReusableCell(withIdentifier:
             CommentTableViewCell.reuseIdentifier, for: indexPath) as! CommentTableViewCell
         cell.authorName.text = comments[indexPath.row].author?.name
         cell.contentTV.text = comments[indexPath.row].content
+        cell.created.text = comments[indexPath.row].created_at
         return cell
     }
 }
