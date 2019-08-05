@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01C49CE6F560AE303ECDF05A /* Pods_fakestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D110D85B04A6FB1FD540036 /* Pods_fakestagram.framework */; };
 		3CB2B510709D3E42B3BC579B /* Pods_fakestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF79A2E61AEC2C124D4D96F /* Pods_fakestagramTests.framework */; };
 		614E641A2299A3490096585E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E64192299A3490096585E /* Comment.swift */; };
 		614E64202299B0860096585E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E641F2299B0860096585E /* CommentTableViewCell.swift */; };
@@ -72,7 +71,6 @@
 /* Begin PBXFileReference section */
 		09C3CAA396EA360019B1BC52 /* Pods-fakestagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagramTests/Pods-fakestagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0BD72FFC2EF8F253511437F2 /* Pods-fakestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fakestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fakestagram/Pods-fakestagram.debug.xcconfig"; sourceTree = "<group>"; };
-		0D110D85B04A6FB1FD540036 /* Pods_fakestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fakestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614E64192299A3490096585E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		614E641F2299B0860096585E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		614E64212299BAC60096585E /* CommentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentClient.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C49CE6F560AE303ECDF05A /* Pods_fakestagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +150,6 @@
 		2DAC47257E183E8DC9C6EDB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D110D85B04A6FB1FD540036 /* Pods_fakestagram.framework */,
 				AFF79A2E61AEC2C124D4D96F /* Pods_fakestagramTests.framework */,
 			);
 			name = Frameworks;
@@ -708,12 +704,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 485M362QGX;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruizro.fakestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -727,12 +729,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 485M362QGX;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruizro.fakestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

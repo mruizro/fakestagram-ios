@@ -14,4 +14,8 @@ class ProfileClient: RestClient<[Post]> {
     convenience init() {
         self.init(client: Client(), path: "/api/profile/posts")
     }
+    convenience init(post:Bool) {
+        self.init(client: Client(), path: "/api/posts")
+    }
+   
 }

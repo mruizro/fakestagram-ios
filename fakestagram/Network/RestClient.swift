@@ -62,10 +62,10 @@ class RestClient<T> where T: Codable {
                 guard let data = data else { print("Empty response"); return }
                 let json = try decoder.decode(T.self, from: data)
                 success?(json)
-                let string1 = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-                if let strinc  = string1{
-                    print(strinc)
-                }
+//                let string1 = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+//                if let strinc  = string1{
+//                    print(strinc)
+//                }
             } catch let err {
                 print("Unable to parse successfull response: \(err.localizedDescription)")
                 errorHandler?(err)

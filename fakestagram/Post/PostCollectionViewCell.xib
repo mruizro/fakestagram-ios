@@ -82,6 +82,7 @@
                 <constraint firstItem="2G7-mz-Uik" firstAttribute="top" secondItem="B7R-9H-BNz" secondAttribute="bottom" constant="11" id="HcB-fz-VqI"/>
                 <constraint firstItem="2G7-mz-Uik" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="9" id="Kch-s1-wk6"/>
                 <constraint firstItem="00E-Fs-pbe" firstAttribute="trailing" secondItem="REL-BQ-2kR" secondAttribute="trailing" id="KzY-2z-Yk8"/>
+                <constraint firstItem="lfa-mc-RD9" firstAttribute="top" secondItem="2G7-mz-Uik" secondAttribute="bottom" constant="4" id="Pfb-kw-TQo"/>
                 <constraint firstItem="B7R-9H-BNz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Z5O-HV-APL"/>
                 <constraint firstItem="00E-Fs-pbe" firstAttribute="leading" secondItem="REL-BQ-2kR" secondAttribute="leading" id="gtT-oa-1Po"/>
                 <constraint firstItem="REL-BQ-2kR" firstAttribute="top" secondItem="2G7-mz-Uik" secondAttribute="top" id="hUP-8a-3Qo"/>
@@ -109,6 +110,6 @@
     </objects>
     <resources>
         <image name="comment" width="50" height="50"/>
-        <image name="like" width="50" height="50"/>
+        <image name="like" width="64" height="64"/>
     </resources>
 </document>

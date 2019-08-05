@@ -39,11 +39,11 @@ class CameraViewController: UIViewController {
     
     
     @IBAction func onTapSnap(_ sender: Any) {
-        guard let img = UIImage(named: "Moto"),
+        guard let img = UIImage(named: "programador"),
               let imgBase64 = img.encodedBase64() else { return }
-        let payload = CreatePostBase64(title: "\(Date().currentTimestamp())", imageData: imgBase64)
+        let payload = CreatePostBase64(title: "No lo haga compa", imageData: imgBase64)
         client.create(payload: payload) { post in
-            print(post)
+            
         }
     }
 

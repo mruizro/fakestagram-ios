@@ -11,11 +11,9 @@ import UIKit
 
 
 class CommentViewController: UIViewController{
-//    @IBOutlet weak var authorLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UITextView!
     @IBOutlet weak var commentsTV: UITableView!
-    @IBOutlet weak var commentTextField:
-    UITextField!
+    @IBOutlet weak var commentTextField:UITextField!
     @IBOutlet weak var authorView: PostAuthorView!
     @IBOutlet weak var closeBtn: UIButton!
     
@@ -36,18 +34,20 @@ class CommentViewController: UIViewController{
         client.all {[weak self] data in
             self!.comments =  data
         }
+        commentsTV.reloadData()
         setValues()
     }
     
-     @IBAction func sendComment(_ sender: Any) {
+    
+    @IBAction func sendComment(_ sender: Any) {
         let payload = Comment(content: commentTextField.text!, author: post.author!)
         client.create(codable: payload) { (comment) in
             self.client.all {[weak self] data in
                 self!.comments =  data
                 self!.commentTextField.text = ""
-            }
-            self.commentsTV.reloadData()
+            }           
         }
+        commentsTV.reloadData()
     }
     
     @IBAction func closeComments(_ sender: Any) {
@@ -60,7 +60,7 @@ class CommentViewController: UIViewController{
     
 }
 extension CommentViewController: UITableViewDelegate, UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
@@ -72,4 +72,42 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource{
         cell.created.text = comments[indexPath.row].created_at
         return cell
     }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let queue = DispatchQueue(label: "comments")
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.client.destroy(id: self.comments[indexPath.row].id!) { _ in
+                self.comments.removeAll()
+            }
+            queue.async{
+                self.client.all {[weak self] data in
+                    self!.comments =  data
+                }
+            }
+            self.commentsTV.reloadData()
+        }
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            let alert = UIAlertController(title: "Edit comment", message: "", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                alert.textFields!.first!.text = self.comments[indexPath.row].content
+            })
+            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
+                if alert.textFields!.first!.text!.count >= 4{
+                    if alert.textFields!.first!.text! != self.comments[indexPath.row].content{
+                        self.comments[indexPath.row].content = alert.textFields!.first!.text!
+                        self.client.update(id: self.comments[indexPath.row].id!, codable: self.comments[indexPath.row], success: { (comment) in
+                            self.commentsTV.reloadRows(at: [indexPath], with: .middle)
+                        })
+                    }
+                    
+                }
+            }
+            ))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: false)
+        })
+        
+        
+        edit.backgroundColor = UIColor(red:1.00, green:0.72, blue:0.00, alpha:1.0)
+        return [delete, edit]
+}
 }

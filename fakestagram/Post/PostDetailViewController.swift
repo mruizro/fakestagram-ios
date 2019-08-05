@@ -14,38 +14,37 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UITextView!
     @IBOutlet weak var likeCounterLbl: UILabel!
+    
+    @IBOutlet weak var commentCounterLbl: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     lazy var client = CommentClient(post: post)
+    lazy var postClient = ProfileClient(post:true)
     var comments: [Comment] = [] {
          didSet { commentsTableView.reloadData() }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assignValues()
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
+        titleLbl.text = post.title
     }
    
     override func viewWillAppear(_ animated: Bool) {
-        client.all {[weak self] data in
-            self!.comments =  data
-        }
-        commentsTableView.reloadData()
+         assignValues()
     }
     
     func assignValues(){
-        guard let post = self.post else { return }
+        self.client.all {[weak self] data in
+            self!.comments =  data
+            self!.post.commentsCount = self!.comments.count
+            self!.commentCounterLbl.text = "\(self!.post.commentsCount)"
+            self!.commentsTableView.reloadData()
+        }
         post.load { [weak self] img in
             self?.imgView.image = img
         }
-        if post.likesCount>1 {
-            likeCounterLbl.text = "\(post.likesCount) likes"
-        } else {
-            likeCounterLbl.text = "\(post.likesCount) like"
-        }
-        
-        titleLbl.text = post.title
+        self.likeCounterLbl.text = "\(self.post.likesCount)"
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -44,8 +44,6 @@ class LikeUpdaterClient {
     
     func onSuccess(response: HTTPResponse, data: Data?) {
         guard response.successful() else { return }
-        // TODO : add observer here
-        print("Yehi!!!")
     }
     
     private func onError(error: Error?) {
